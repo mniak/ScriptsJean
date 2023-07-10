@@ -24,7 +24,7 @@ jobs:
       run: go test -v ./createdirs
 
     - name: Build Windows 64
-      run: go build -v ./createdirs -o createdirs-win64.exe
+      run: go build -v ./createdirs
       env:
         GOOS: windows
         GOARCH: amd64
@@ -34,4 +34,4 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
-          createdirs-win64.exe
+          createdirs.exe
