@@ -2,8 +2,13 @@ on:
   push:
     tags:
       - "v*.*.*"
+
+permissions:
+    contents: write
+    packages: write
+
 jobs:
-  build:
+  release:
     name: Build and release
     runs-on: ubuntu-latest
     steps:
@@ -13,9 +18,6 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: "1.20"
-
-    - name: Test
-      run: go test -v ./createdirs
 
     - name: Build Windows 64
       run: go build -v ./createdirs
