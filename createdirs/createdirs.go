@@ -26,7 +26,7 @@ func getWeekDayAbbreviation(weekday time.Weekday) string {
 	return result
 }
 
-func GetDirNames(date time.Time) []string {
+func DirNames(date time.Time) []string {
 	dateStr := date.Format("06 01 02")
 	root := fmt.Sprintf("%s %s. Fotos", dateStr, getWeekDayAbbreviation(date.Weekday()))
 	return []string{
@@ -40,7 +40,7 @@ func GetDirNames(date time.Time) []string {
 }
 
 func main() {
-	dirs := GetDirNames(time.Now())
+	dirs := DirNames(time.Now())
 
 	var errs error
 	for _, dir := range dirs {
