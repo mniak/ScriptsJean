@@ -36,6 +36,7 @@ func DirNames(date time.Time) []string {
 		path.Join(root, fmt.Sprintf("%s Ecobie", dateStr), "Ecobie 1"),
 		path.Join(root, fmt.Sprintf("%s Ecobie", dateStr), "Ecobie 2"),
 		path.Join(root, fmt.Sprintf("%s Ecobie", dateStr), "Ecobie 3"),
+		path.Join(root, fmt.Sprintf("%s Ecobie", dateStr), "Ecobie 4"),
 	}
 }
 

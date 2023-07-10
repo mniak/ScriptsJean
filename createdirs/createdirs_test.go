@@ -18,6 +18,7 @@ func TestDirNames(t *testing.T) {
 		assert.Equal(t, "23 07 09 Sonn. Fotos/23 07 09 Ecobie/Ecobie 1", dirnames[2])
 		assert.Equal(t, "23 07 09 Sonn. Fotos/23 07 09 Ecobie/Ecobie 2", dirnames[3])
 		assert.Equal(t, "23 07 09 Sonn. Fotos/23 07 09 Ecobie/Ecobie 3", dirnames[4])
+		assert.Equal(t, "23 07 09 Sonn. Fotos/23 07 09 Ecobie/Ecobie 4", dirnames[4])
 	})
 
 	t.Run("Generated example", func(t *testing.T) {
@@ -30,5 +31,6 @@ func TestDirNames(t *testing.T) {
 		assert.Equal(t, "07 06 05 Diens. Fotos/07 06 05 Ecobie/Ecobie 1", dirnames[2])
 		assert.Equal(t, "07 06 05 Diens. Fotos/07 06 05 Ecobie/Ecobie 2", dirnames[3])
 		assert.Equal(t, "07 06 05 Diens. Fotos/07 06 05 Ecobie/Ecobie 3", dirnames[4])
+		assert.Equal(t, "07 06 05 Diens. Fotos/07 06 05 Ecobie/Ecobie 4", dirnames[4])
 	})
 }
