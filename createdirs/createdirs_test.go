@@ -7,10 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDirNames(t *testing.T) {
+func TestDirNamesForSingleDate(t *testing.T) {
 	t.Run("Example from video", func(t *testing.T) {
 		date := time.Date(2023, 7, 9, 0, 0, 0, 0, time.Local)
-		dirnames := DirNames(date)
+		dirnames := DirNamesForSingleDate(date)
 
 		assert.Len(t, dirnames, 5)
 		assert.Equal(t, "23 07 09 Sonn. Fotos/23 07 09 Pingos", dirnames[0])
@@ -23,7 +23,7 @@ func TestDirNames(t *testing.T) {
 
 	t.Run("Generated example", func(t *testing.T) {
 		date := time.Date(2007, 6, 5, 0, 0, 0, 0, time.Local)
-		dirnames := DirNames(date)
+		dirnames := DirNamesForSingleDate(date)
 
 		assert.Len(t, dirnames, 5)
 		assert.Equal(t, "07 06 05 Diens. Fotos/07 06 05 Pingos", dirnames[0])

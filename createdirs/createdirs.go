@@ -26,7 +26,7 @@ func getWeekDayAbbreviation(weekday time.Weekday) string {
 	return result
 }
 
-func DirNames(date time.Time) []string {
+func DirNamesForSingleDate(date time.Time) []string {
 	dateStr := date.Format("06 01 02")
 	root := fmt.Sprintf("%s %s. Fotos", dateStr, getWeekDayAbbreviation(date.Weekday()))
 	return []string{
@@ -40,8 +40,17 @@ func DirNames(date time.Time) []string {
 	}
 }
 
+func DirNamesForEntireMonth(date time.Time) []string {
+	firstOfThisMonth := time.Date(date.Year(), date.Month(), 1, 0, 0, 0, 0, time.Local)
+	var result []string
+	for d := firstOfThisMonth; d.Month() == date.Month(); d = d.AddDate(0, 0, 1) {
+		result = append(result, DirNamesForSingleDate(d)...)
+	}
+	return result
+}
+
 func main() {
-	dirs := DirNames(time.Now())
+	dirs := DirNamesForEntireMonth(time.Now())
 
 	var errs error
 	for _, dir := range dirs {
