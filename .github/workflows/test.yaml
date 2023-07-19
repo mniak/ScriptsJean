@@ -7,10 +7,10 @@ on:
 jobs:
   build:
     name: Build and run rests
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-latest
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows, macos, ubuntu]
     steps:
     - uses: actions/checkout@v3
 
@@ -24,3 +24,10 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.os }}-binaries
+        path: |
+          build/*
