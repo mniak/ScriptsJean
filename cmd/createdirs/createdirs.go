@@ -49,10 +49,29 @@ func DirNamesForEntireMonth(date time.Time) []string {
 	return result
 }
 
+// The function "main" is always the start of a Go program
 func main() {
-	dirs := DirNamesForEntireMonth(time.Now())
+	// Get the current time and store in the variable "now"
+	now := time.Now()
 
+	// Call the function DirNamesForEntireMonth passing a date which is on the
+	// variable "now"
+	//
+	// This will return a list of all the directories that should be created.
+	dirs := DirNamesForEntireMonth(now)
+
+	// Declare a variable named "errs" of type "error" without setting a value in to
+	// it (in other words, without initializing it). The default value when a
+	// variable is not initialized is "nil". In Go, all types have a "zero" values.
+	// For the numeric types it is really "0". For the type string, the "zero" value
+	// is "" (empty string). For other types it is usually "nil", which is kind of a
+	// "null", which is kind of a "non-value", in the same way as ∞ (infinity) is
+	// neither "zero" nor any other number.
+	//
+	// This variable is declared to accumulate all the errors that could occur while
+	// creating the directories.
 	var errs error
+
 	for _, dir := range dirs {
 		fmt.Printf("Creating directory '%s'\n", dir)
 		err := os.MkdirAll(dir, 0o755)
