@@ -24,6 +24,7 @@ jobs:
       env:
         GOOS: windows
         GOARCH: amd64
+        CGO_ENABLED: 1
 
     - name: Release
       uses: softprops/action-gh-release@v1
