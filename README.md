@@ -17,3 +17,22 @@ The current version creates directories for all the days of the current month.
    ├─ Ecobie 3/
    └─ Ecobie 4/
 ``` 
+
+## Script `wadown`
+Downloads images received from whatsapp into `images/phone_number`.
+
+The program will keep running until you close it. If it closes without intervention, it means an unexpected error occurred.
+
+Instead of the phone number, an alias can be used. You can specify aliases creating a file `wadown.config` and filling the `known_phones` as [this](cmd/wadown/wadown.config):
+
+```
+known_phones:
+  "4915263011023": "Afthas Arden Deun"
+  "523120799119": "Guadalupe Ramirez"
+```
+
+The phone numbers must have country and area codes. A simple way to know the correct numbers is to check the directories created inside `images/` for not-yet-known phones.
+
+This is an [YAML file](https://en.wikipedia.org/wiki/YAML).
+
+A database file `wadown.db` will be created. If you desire to reconfigure the application (e.g. change the account that is connected), you can simply delete it.

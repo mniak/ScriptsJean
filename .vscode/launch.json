@@ -7,7 +7,14 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/cmd/createdirs"
+        },
+        {
+            "name": "wadown",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cmd/wadown",
+            "console": "integratedTerminal"
         }
-        
     ]
 }
