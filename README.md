@@ -27,7 +27,7 @@ Instead of the phone number, an alias can be used. You can specify aliases creat
 
 ```
 known_phones:
-  "4915263011023": "Afthas Arden Deun"
+  "4915263011023": "Afthas Ardendeun"
   "523120799119": "Guadalupe Ramirez"
 ```
 
