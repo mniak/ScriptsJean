@@ -5,15 +5,15 @@
             "name": "createdirs",
             "type": "go",
             "request": "launch",
-            "mode": "auto",
-            "program": "${workspaceFolder}/cmd/createdirs"
+            "mode": "debug",
+            "program": "${workspaceFolder}/createdirs"
         },
         {
             "name": "wadown",
             "type": "go",
             "request": "launch",
-            "mode": "auto",
-            "program": "${workspaceFolder}/cmd/wadown",
+            "mode": "debug",
+            "program": "${workspaceFolder}/wadown",
             "console": "integratedTerminal"
         }
     ]

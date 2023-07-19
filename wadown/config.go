@@ -11,8 +11,14 @@ func LoadConfig() (Config, error) {
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("$HOME/")
 	viper.AddConfigPath(".")
+	viper.SetDefault("a", "b")
 	if err := viper.ReadInConfig(); err != nil {
-		return Config{}, err
+		switch err.(type) {
+		case viper.ConfigFileNotFoundError:
+			return Config{}, nil
+		default:
+			return Config{}, err
+		}
 	}
 
 	for k, v := range viper.AllSettings() {
