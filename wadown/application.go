@@ -6,10 +6,13 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/mdp/qrterminal"
+	"github.com/pkg/errors"
 	"go.mau.fi/whatsmeow"
 	"go.mau.fi/whatsmeow/store"
+	"go.mau.fi/whatsmeow/types"
 	"go.mau.fi/whatsmeow/types/events"
 )
 
@@ -48,20 +51,32 @@ func (app *Application) HandleEvent(evt interface{}) {
 	case *events.Message:
 		switch v.Info.MediaType {
 		case "image":
-			dirname := filepath.Join("images", app.config.GetUserAlias(v.Info.Sender.User))
-			os.MkdirAll(dirname, PERM_DEFAULT)
-			filename := filepath.Join(dirname, fmt.Sprintf("%s.jpg", v.Info.ID))
 
-			mediaBytes, err := app.client.Download(v.Message.GetImageMessage())
+			imgBytes, err := app.client.Download(v.Message.GetImageMessage())
 			if err != nil {
-				log.Printf("Failed to download image '%s': %s\n", filename, err)
+				log.Printf("Failed to download image '%s': %s\n", v.Info.ID, err)
 				return
 			}
-			err = os.WriteFile(filename, mediaBytes, PERM_DEFAULT)
+			err = app.SaveImage(v.Info, imgBytes)
 			if err != nil {
-				log.Printf("Failed to download image '%s': %s\n", filename, err)
+				log.Printf("Failed to store image '%s': %s\n", v.Info.ID, err)
 				return
 			}
 		}
 	}
+}
+
+func (app *Application) SaveImage(info types.MessageInfo, imgBytes []byte) error {
+	dirname := filepath.Join("images", app.config.GetUserAlias(info.Timestamp.Format(time.DateOnly)))
+	err := os.MkdirAll(dirname, PERM_DEFAULT)
+	if err != nil {
+		return errors.WithMessage(err, fmt.Sprintf("could not create directory '%s'", dirname))
+	}
+	filename := filepath.Join(dirname, fmt.Sprintf("%s.jpg", info.ID))
+
+	err = os.WriteFile(filename, imgBytes, PERM_DEFAULT)
+	if err != nil {
+		return err
+	}
+	return nil
 }
