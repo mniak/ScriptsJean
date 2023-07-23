@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build and run rests
+    name: Build and run Tests
     runs-on: ${{ matrix.os }}-latest
     strategy:
       matrix:
