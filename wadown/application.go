@@ -52,6 +52,10 @@ func (app *Application) HandleEvent(evt interface{}) {
 		switch v.Info.MediaType {
 		case "image":
 
+			if v.Info.Sender.User == app.client.Store.ID.User {
+				return
+			}
+
 			imgBytes, err := app.client.Download(v.Message.GetImageMessage())
 			if err != nil {
 				log.Printf("Failed to download image '%s': %s\n", v.Info.ID, err)
