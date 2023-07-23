@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/mattn/go-sqlite3 v1.14.17
 	github.com/mdp/qrterminal v1.0.1
+	github.com/pkg/errors v0.9.1
 	github.com/samber/lo v1.38.1
 	github.com/spf13/viper v1.16.0
 	github.com/stretchr/testify v1.8.3
