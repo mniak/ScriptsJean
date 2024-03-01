@@ -8,7 +8,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/samber/lo v1.38.1
 	github.com/spf13/viper v1.16.0
-	github.com/stretchr/testify v1.8.3
+	github.com/stretchr/testify v1.9.0
 	go.mau.fi/whatsmeow v0.0.0-20230718190209-efef6f1cec8e
 	go.uber.org/multierr v1.11.0
 )
