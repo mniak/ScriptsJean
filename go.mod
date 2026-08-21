@@ -8,7 +8,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/samber/lo v1.38.1
 	github.com/spf13/viper v1.16.0
-	github.com/stretchr/testify v1.8.3
+	github.com/stretchr/testify v1.12.1
 	go.mau.fi/whatsmeow v0.0.0-20230718190209-efef6f1cec8e
 	go.uber.org/multierr v1.11.0
 )
@@ -29,6 +29,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
 	go.mau.fi/libsignal v0.1.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
 	golang.org/x/sys v0.8.0 // indirect
